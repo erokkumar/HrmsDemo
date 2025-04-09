@@ -56,16 +56,18 @@
     "web-vitals": "3.3.1",
     "xml2js": "^0.6.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "install:peer-deps": "npm install --legacy-peer-deps",
-    "predeploy": "npm run build && cp ./build/index.html ./build/404.html",
-    "deploy": "gh-pages -d build"
-  },
+"scripts": {
+  "start": "concurrently \"npm run frontend\" \"npm run backend\"",
+  "frontend": "npm start",
+  "backend": "node server.js",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+  "install:peer-deps": "npm install --legacy-peer-deps",
+  "predeploy": "npm run build && cp ./build/index.html ./build/404.html",
+  "deploy": "gh-pages -d build"
+},,
   "eslintConfig": {
     "extends": [
       "react-app",
